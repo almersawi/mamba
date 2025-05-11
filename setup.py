@@ -130,7 +130,7 @@ cmdclass = {}
 ext_modules = []
 
 
-HIP_BUILD = bool(torch.version.hip)
+HIP_BUILD = True
 
 if not SKIP_CUDA_BUILD:
     print("\n\ntorch.version.hip", torch.version.hip)
