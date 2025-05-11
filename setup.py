@@ -133,6 +133,8 @@ ext_modules = []
 HIP_BUILD = bool(torch.version.hip)
 
 if not SKIP_CUDA_BUILD:
+    print("\n\ntorch.version.hip", torch.version.hip)
+    print("\n\ntorch.ROCM_PATH", HIP_HOME)
     print("\n\ntorch.__version__  = {}\n\n".format(torch.__version__))
     TORCH_MAJOR = int(torch.__version__.split(".")[0])
     TORCH_MINOR = int(torch.__version__.split(".")[1])
@@ -143,6 +145,7 @@ if not SKIP_CUDA_BUILD:
         check_if_hip_home_none(PACKAGE_NAME)
 
         rocm_home = os.getenv("ROCM_PATH")
+        print("rocm_home", rocm_home)
         _, hip_version = get_hip_version(rocm_home)
 
         if HIP_HOME is not None:
@@ -371,11 +374,11 @@ setup(
     python_requires=">=3.9",
     install_requires=[
         # "torch",
-        "packaging",
-        "ninja",
-        "einops",
-        "triton",
-        "transformers",
+        # "packaging",
+        # "ninja",
+        # "einops",
+        # "triton",
+        # "transformers",
         # "causal_conv1d>=1.4.0",
     ],
 )
